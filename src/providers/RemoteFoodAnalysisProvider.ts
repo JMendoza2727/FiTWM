@@ -3,7 +3,7 @@
 // ============================================================
 
 import { IFoodAnalysisProvider } from './IFoodAnalysisProvider';
-import { AnalysisResult, MealType } from '@domain/types';
+import { AnalysisResult } from '@domain/types';
 
 // Backend URL - configured via environment variable or default
 const ANALYSIS_API_URL = import.meta.env.VITE_ANALYSIS_API_URL || '';
@@ -13,7 +13,7 @@ export class RemoteFoodAnalysisProvider implements IFoodAnalysisProvider {
     return ANALYSIS_API_URL ? 'Remote API' : 'Remote (no configured)';
   }
 
-  async analyze(imageData: string, mealType: MealType): Promise<AnalysisResult> {
+  async analyze(imageData: string): Promise<AnalysisResult> {
     if (!ANALYSIS_API_URL) {
       throw new Error('Remote API URL not configured. Using mock analysis.');
     }
@@ -28,7 +28,7 @@ export class RemoteFoodAnalysisProvider implements IFoodAnalysisProvider {
 
     const formData = new FormData();
     formData.append('image', new Blob([byteArrays], { type: 'image/png' }), 'food.png');
-    formData.append('mealType', mealType);
+    formData.append('mealType', 'comida');
 
     const response = await fetch(`${ANALYSIS_API_URL}/analyze`, {
       method: 'POST',

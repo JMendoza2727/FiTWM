@@ -3,7 +3,7 @@
 // ============================================================
 
 import { IFoodAnalysisProvider } from './IFoodAnalysisProvider';
-import { AnalysisResult, MealType } from '@domain/types';
+import { AnalysisResult } from '@domain/types';
 import { analyzeImageMock } from '@nutrition/analysis';
 
 export class MockFoodAnalysisProvider implements IFoodAnalysisProvider {
@@ -11,10 +11,10 @@ export class MockFoodAnalysisProvider implements IFoodAnalysisProvider {
     return 'Mock (Demo)';
   }
 
-  async analyze(imageData: string, mealType: MealType): Promise<AnalysisResult> {
+  async analyze(imageData: string): Promise<AnalysisResult> {
     // Simulate network delay
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    return analyzeImageMock(imageData, mealType);
+    return analyzeImageMock(imageData);
   }
 }
