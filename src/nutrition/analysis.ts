@@ -2,7 +2,7 @@
 // FiTWM - Nutrition Analysis Module
 // ============================================================
 
-import { FoodItem, MealType, AnalysisResult } from '@domain/types';
+import { FoodItem, AnalysisResult } from '@domain/types';
 
 // Deterministic pseudo-random from seed for reproducibility
 function seededRandom(seed: number): () => number {
@@ -57,7 +57,7 @@ function generateMockFoods(imageSeed: number): FoodItem[] {
   return foods;
 }
 
-export function analyzeImageMock(imageData: string, mealType: MealType): AnalysisResult {
+export function analyzeImageMock(imageData: string): AnalysisResult {
   // Use hash of image data as seed for deterministic results
   let hash = 0;
   const str = imageData || '';

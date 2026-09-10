@@ -5,14 +5,6 @@
 const DB_NAME = 'fitwm_db';
 const DB_VERSION = 1;
 
-interface DBConfig {
-  stores: string[];
-}
-
-const CONFIG: DBConfig = {
-  stores: ['profiles', 'dailySummaries', 'favoriteMeals', 'meals'],
-};
-
 function openDB(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
     const request = indexedDB.open(DB_NAME, DB_VERSION);
@@ -103,5 +95,3 @@ export const dbService = {
   clearStore,
   open: openDB,
 };
-
-export type { DBConfig };

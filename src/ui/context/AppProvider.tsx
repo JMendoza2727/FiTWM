@@ -11,7 +11,8 @@ import {
   FavoriteMeal,
   Meal,
   ThemeMode,
-  MealAnalysis,
+  AnalysisResult,
+  AppScreen,
 } from '@domain/types';
 import { getProfile, saveProfile, getDailySummary, saveDailySummary, getFavoriteMeals, saveFavoriteMeal, getMeals, saveMeal } from '@storage/repository';
 
@@ -43,7 +44,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   // Camera
   const [cameraImage, setCameraImageState] = useState<string | null>(null);
-  const [isAnalyzing, setIsAnalyzingState] = useState(false);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysisResult, setAnalysisResultState] = useState<AnalysisResult | null>(null);
   const [analysisError, setAnalysisErrorState] = useState<string | null>(null);
 

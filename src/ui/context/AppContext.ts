@@ -9,9 +9,6 @@ import {
   DailySummary,
   FavoriteMeal,
   Meal,
-  FoodItem,
-  MealType,
-  AnalysisResult,
   ThemeMode,
   AppScreen,
 } from '@domain/types';
@@ -64,21 +61,6 @@ export interface AppState {
   historyDate: string;
   setHistoryDate: (date: string) => void;
 }
-
-const defaultGoals: NutritionGoals = {
-  kcal: 2000,
-  protein: 150,
-  carbs: 250,
-  fat: 65,
-};
-
-const defaultProfile: UserProfile = {
-  id: 'default',
-  name: '',
-  weight: null,
-  createdAt: new Date().toISOString(),
-  updatedAt: new Date().toISOString(),
-};
 
 export const AppContext = createContext<AppState | null>(null);
 
