@@ -84,4 +84,4 @@ export interface AnalysisResult {
 
 export type ThemeMode = 'light' | 'dark' | 'system';
 
-export type AppScreen = 'hoy' | 'camara' | 'historial' | 'perfil';
+export type AppScreen = 'hoy' | 'camara' | 'resultado' | 'historial' | 'perfil';
