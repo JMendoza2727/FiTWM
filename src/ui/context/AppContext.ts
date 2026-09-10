@@ -11,6 +11,7 @@ import {
   Meal,
   ThemeMode,
   AppScreen,
+  AnalysisResult,
 } from '@domain/types';
 
 export interface AppState {
