@@ -28,6 +28,6 @@
       "@nutrition/*": ["src/nutrition/*"]
     }
   },
-  "include": ["src", "vite.config.ts", "vitest.config.ts"],
+  "include": ["src", "vite.config.ts", "vitest.config.ts", "vite-env.d.ts"],
   "exclude": ["node_modules", "dist"]
 }
