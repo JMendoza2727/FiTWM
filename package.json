@@ -1,0 +1,37 @@
+{
+  "name": "fitwm",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "FiTWM - Food Image Tracker for Mobile. PWA mobile-first para iPhone.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "format": "prettier --write src/**/*.{ts,tsx,css}"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.9.1",
+    "jsdom": "^25.0.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2",
+    "vite-plugin-pwa": "^0.20.2",
+    "vitest": "^2.0.5",
+    "workbox-window": "^7.1.0"
+  }
+}
