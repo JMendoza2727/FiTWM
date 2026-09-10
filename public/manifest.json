@@ -1,0 +1,25 @@
+{
+  "name": "FiTWM - Food Image Tracker",
+  "short_name": "FiTWM",
+  "description": "Estimación de alimentos, calorías y macros por imagen. PWA offline-first.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#1a1a2e",
+  "background_color": "#ffffff",
+  "categories": ["health", "food", "lifestyle"],
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
