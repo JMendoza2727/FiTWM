@@ -60,7 +60,7 @@ export function ResultadoScreen() {
     );
   }
 
-  const { foods, totalKcal, totalProtein, totalCarbs, totalFat, confidence, isDemo } = analysisResult;
+  const { foods } = analysisResult;
 
   const updatedFoods = useMemo(() => {
     return foods.map(f => {
