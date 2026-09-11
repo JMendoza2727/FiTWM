@@ -4,7 +4,7 @@
 
 import { useAppContext } from '@ui/context/AppContext';
 import { useMemo, useState, useCallback } from 'react';
-import { DailySummary, Meal, MealAnalysis } from '@domain/types';
+import { DailySummary, Meal, MealAnalysis, FavoriteMeal } from '@domain/types';
 
 function formatDateDisplay(dateStr: string): string {
   const today = new Date().toISOString().split('T')[0];
@@ -76,7 +76,7 @@ function MealSummary({ mealAnalysis, onDelete, onRepeat }: { mealAnalysis: MealA
 }
 
 export function HistorialScreen() {
-  const { meals, setMeals, dailySummary, setDailySummary, historyDate, setHistoryDate, favoriteMeals, setFavoriteMeals, setCurrentScreen } = useAppContext();
+  const { meals, setMeals, dailySummary, _setDailySummary, historyDate, setHistoryDate, favoriteMeals, setFavoriteMeals, setCurrentScreen } = useAppContext();
   const [editingDate, setEditingDate] = useState(false);
   const [selectedDate, setSelectedDate] = useState(historyDate);
 
@@ -151,18 +151,12 @@ export function HistorialScreen() {
     setCurrentScreen('hoy');
   }, [meals, setMeals, setCurrentScreen]);
 
-  const toggleFavorite = useCallback((mealAnalysis: MealAnalysis) => {
-    const existing = favoriteMeals.find(fm => fm.meal.id === mealAnalysis.meal.id);
+  const toggleFavorite = useCallback((fav: FavoriteMeal) => {
+    const existing = favoriteMeals.find(fm => fm.meal.id === fav.meal.id);
     if (existing) {
-      setFavoriteMeals(favoriteMeals.filter(fm => fm.meal.id !== mealAnalysis.meal.id));
+      setFavoriteMeals(favoriteMeals.filter(fm => fm.meal.id !== fav.meal.id));
     } else {
-      setFavoriteMeals([...favoriteMeals, {
-        id: `fav-${Date.now()}`,
-        meal: mealAnalysis.meal,
-        mealAnalysis,
-        savedAt: new Date().toISOString(),
-        name: mealAnalysis.meal.foods.map(f => f.name).slice(0, 3).join(', '),
-      }]);
+      setFavoriteMeals([...favoriteMeals, fav]);
     }
   }, [favoriteMeals, setFavoriteMeals]);
 
