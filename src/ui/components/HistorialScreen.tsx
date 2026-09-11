@@ -76,7 +76,7 @@ function MealSummary({ mealAnalysis, onDelete, onRepeat }: { mealAnalysis: MealA
 }
 
 export function HistorialScreen() {
-  const { meals, setMeals, dailySummary, _setDailySummary, historyDate, setHistoryDate, favoriteMeals, setFavoriteMeals, setCurrentScreen } = useAppContext();
+  const { meals, setMeals, dailySummary, setDailySummary, historyDate, setHistoryDate, favoriteMeals, setFavoriteMeals, setCurrentScreen } = useAppContext();
   const [editingDate, setEditingDate] = useState(false);
   const [selectedDate, setSelectedDate] = useState(historyDate);
 
