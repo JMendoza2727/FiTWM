@@ -45,22 +45,7 @@ export function ResultadoScreen() {
   const [editCarbs, setEditCarbs] = useState('');
   const [editFat, setEditFat] = useState('');
 
-  if (!analysisResult) {
-    return (
-      <div className="screen resultado-screen">
-        <div className="resultado-empty">
-          <div className="resultado-empty-icon">📷</div>
-          <h2>Sin resultados</h2>
-          <p>Analiza una foto de tu comida para ver los resultados</p>
-          <button className="btn btn-primary" onClick={() => setCurrentScreen('camara')}>
-            Abrir cámara
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  const { foods } = analysisResult;
+  const foods = analysisResult?.foods || [];
 
   const updatedFoods = useMemo(() => {
     return foods.map(f => {
@@ -99,7 +84,7 @@ export function ResultadoScreen() {
   }, []);
 
   const saveEdit = useCallback((foodId: string) => {
-    const updated = analysisResult.foods.map(f => {
+    const updated = analysisResult?.foods.map(f => {
       if (f.id === foodId) {
         return {
           ...f,
@@ -111,18 +96,18 @@ export function ResultadoScreen() {
         };
       }
       return f;
-    });
-    setAnalysisResult({ ...analysisResult, foods: updated });
+    }) || [];
+    setAnalysisResult({ ...analysisResult!, foods: updated });
     setEditingFood(null);
   }, [analysisResult, editGrams, editKcal, editProtein, editCarbs, editFat, setAnalysisResult]);
 
   const deleteFood = useCallback((foodId: string) => {
-    const updated = analysisResult.foods.filter(f => f.id !== foodId);
-    setAnalysisResult({ ...analysisResult, foods: updated });
+    const updated = analysisResult?.foods.filter(f => f.id !== foodId) || [];
+    setAnalysisResult({ ...analysisResult!, foods: updated });
   }, [analysisResult, setAnalysisResult]);
 
   const saveMeal = useCallback(() => {
-    const updatedFoods = analysisResult.foods.map(f => ({
+    const updatedFoods = analysisResult!.foods.map(f => ({
       ...f,
       grams: parseFloat(editGrams) || f.grams,
       kcal: parseFloat(editKcal) || f.kcal,
@@ -140,7 +125,6 @@ export function ResultadoScreen() {
 
     setMeals([...meals, meal]);
 
-    // Update daily summary
     const today = new Date().toISOString().split('T')[0];
     const existingSummary = dailySummary;
     const newSummary = {
@@ -166,6 +150,21 @@ export function ResultadoScreen() {
   }, [analysisResult, selectedMealType, meals, setMeals, dailySummary, setDailySummary, setAnalysisResult, setCurrentScreen, editGrams, editKcal, editProtein, editCarbs, editFat]);
 
   const avgConfidence = foods.length > 0 ? foods.reduce((s, f) => s + f.confidence, 0) / foods.length : 0;
+
+  if (!analysisResult) {
+    return (
+      <div className="screen resultado-screen">
+        <div className="resultado-empty">
+          <div className="resultado-empty-icon">📷</div>
+          <h2>Sin resultados</h2>
+          <p>Analiza una foto de tu comida para ver los resultados</p>
+          <button className="btn btn-primary" onClick={() => setCurrentScreen('camara')}>
+            Abrir cámara
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="screen resultado-screen">
