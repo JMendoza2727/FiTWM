@@ -45,7 +45,7 @@ export function ResultadoScreen() {
   const [editCarbs, setEditCarbs] = useState('');
   const [editFat, setEditFat] = useState('');
 
-  const foods = analysisResult?.foods || [];
+  const foods = useMemo(() => analysisResult?.foods || [], [analysisResult]);
 
   const updatedFoods = useMemo(() => {
     return foods.map(f => {
