@@ -35,7 +35,7 @@ export function CamaraScreen() {
           videoRef.current.srcObject = stream;
           streamRef.current = stream;
         }
-      } catch (_err) {
+      } catch {
         if (active) {
           setAnalysisError('No se pudo acceder a la cámara. Usa la galería.');
         }
@@ -63,7 +63,7 @@ export function CamaraScreen() {
     setCameraImage(dataUrl);
   }, [setCameraImage]);
 
-  const handleFileSelect = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const _handleFileSelect = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
     const reader = new FileReader();
@@ -82,9 +82,9 @@ export function CamaraScreen() {
     // Simulate analysis delay
     setTimeout(() => {
       try {
-        const result = analyzeImageMock(cameraImage);
+        const _result = analyzeImageMock(cameraImage);
         setCurrentScreen('resultado');
-      } catch (_err) {
+      } catch {
         setAnalysisError('Error al analizar la imagen');
       } finally {
         setIsAnalyzing(false);
