@@ -13,11 +13,6 @@ const MEAL_TYPES: { key: MealType; label: string; icon: string }[] = [
   { key: 'snack', label: 'Snack', icon: '🍎' },
 ];
 
-function formatTime(iso: string): string {
-  const d = new Date(iso);
-  return d.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
-}
-
 function MacroBar({ value, goal, color, unit }: { value: number; goal: number; color: string; unit: string }) {
   const pct = goal > 0 ? Math.min((value / goal) * 100, 100) : 0;
   return (
@@ -31,44 +26,6 @@ function MacroBar({ value, goal, color, unit }: { value: number; goal: number; c
       <div className="macro-bar-track">
         <div className="macro-bar-fill" style={{ width: `${pct}%`, backgroundColor: color }} />
       </div>
-    </div>
-  );
-}
-
-function MealCard({ type, foods, onAddFood }: { type: MealType; foods: FoodItem[]; onAddFood: () => void }) {
-  const info = MEAL_TYPES.find(m => m.key === type)!;
-  const totalKcal = foods.reduce((s, f) => s + f.kcal, 0);
-
-  return (
-    <div className="meal-card">
-      <div className="meal-card-header">
-        <div className="meal-card-title">
-          <span className="meal-card-icon">{info.icon}</span>
-          <span className="meal-card-name">{info.label}</span>
-        </div>
-        <button className="meal-card-add" onClick={onAddFood} aria-label="Añadir comida">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
-          </svg>
-        </button>
-      </div>
-      {foods.length === 0 ? (
-        <div className="meal-card-empty">Sin alimentos añadidos</div>
-      ) : (
-        <div className="meal-card-body">
-          {foods.map((f, i) => (
-            <div key={f.id || i} className="meal-card-item">
-              <span className="meal-card-item-name">{f.name}</span>
-              <span className="meal-card-item-grams">{f.grams}g</span>
-              <span className="meal-card-item-kcal">{f.kcal} kcal</span>
-            </div>
-          ))}
-          <div className="meal-card-total">
-            <span>Total</span>
-            <span className="meal-card-total-kcal">{Math.round(totalKcal)} kcal</span>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
@@ -101,8 +58,7 @@ function CircularProgress({ kcal, goal }: { kcal: number; goal: number }) {
 }
 
 export function HoyScreen() {
-  const { profile, goals, meals, setMeals, dailySummary, setDailySummary } = useAppContext();
-  const [showAddMeal, setShowAddMeal] = useState<MealType | null>(null);
+  const { profile, goals, meals, setMeals } = useAppContext();
   const [showAddFood, setShowAddFood] = useState<MealType | null>(null);
   const [newFoodName, setNewFoodName] = useState('');
   const [newFoodGrams, setNewFoodGrams] = useState('');
@@ -132,17 +88,6 @@ export function HoyScreen() {
   }, [todayMeals]);
 
   const remainingKcal = goals.kcal - todayAnalysis.totalKcal;
-
-  const addMeal = useCallback((type: MealType) => {
-    const newMeal: import('@domain/types').Meal = {
-      id: `meal-${Date.now()}`,
-      type,
-      foods: [],
-      timestamp: new Date().toISOString(),
-    };
-    setMeals([...meals, newMeal]);
-    setShowAddMeal(null);
-  }, [meals, setMeals]);
 
   const addFoodToMeal = useCallback((mealType: MealType) => {
     if (!newFoodName.trim() || !newFoodGrams) return;
