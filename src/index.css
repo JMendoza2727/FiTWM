@@ -1112,6 +1112,7 @@ body {
 .segmented-btn.active {
   background: var(--bg-card);
   box-shadow: var(--shadow);
+}r(--shadow);
   font-weight: 600;
 }
 
