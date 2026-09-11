@@ -12,8 +12,6 @@ export function CamaraScreen() {
     setCameraImage,
     isAnalyzing,
     setIsAnalyzing,
-    analysisResult,
-    setAnalysisResult,
     analysisError,
     setAnalysisError,
     setCurrentScreen,
@@ -37,7 +35,7 @@ export function CamaraScreen() {
           videoRef.current.srcObject = stream;
           streamRef.current = stream;
         }
-      } catch (err) {
+      } catch (_err) {
         if (active) {
           setAnalysisError('No se pudo acceder a la cámara. Usa la galería.');
         }
@@ -50,7 +48,7 @@ export function CamaraScreen() {
       streamRef.current?.getTracks().forEach(t => t.stop());
       streamRef.current = null;
     };
-  }, []);
+  }, [setAnalysisError]);
 
   const capturePhoto = useCallback(() => {
     if (!videoRef.current || !canvasRef.current) return;
@@ -85,15 +83,14 @@ export function CamaraScreen() {
     setTimeout(() => {
       try {
         const result = analyzeImageMock(cameraImage);
-        setAnalysisResult(result);
         setCurrentScreen('resultado');
-      } catch (err) {
+      } catch (_err) {
         setAnalysisError('Error al analizar la imagen');
       } finally {
         setIsAnalyzing(false);
       }
     }, 1500);
-  }, [cameraImage, setIsAnalyzing, setAnalysisResult, setAnalysisError, setCurrentScreen]);
+  }, [cameraImage, setIsAnalyzing, setAnalysisError, setCurrentScreen]);
 
   const cancelPhoto = useCallback(() => {
     setCameraImage(null);
@@ -125,7 +122,16 @@ export function CamaraScreen() {
             input.type = 'file';
             input.accept = 'image/*';
             input.capture = 'environment';
-            input.onchange = handleFileSelect;
+            (input as HTMLInputElement).onchange = (e: Event) => {
+              const target = e.target as HTMLInputElement;
+              const file = target.files?.[0];
+              if (!file) return;
+              const reader = new FileReader();
+              reader.onload = () => {
+                setCameraImage(reader.result as string);
+              };
+              reader.readAsDataURL(file);
+            };
             input.click();
           }}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -192,7 +198,16 @@ export function CamaraScreen() {
           const input = document.createElement('input');
           input.type = 'file';
           input.accept = 'image/*';
-          input.onchange = handleFileSelect;
+          (input as HTMLInputElement).onchange = (e: Event) => {
+            const target = e.target as HTMLInputElement;
+            const file = target.files?.[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+              setCameraImage(reader.result as string);
+            };
+            reader.readAsDataURL(file);
+          };
           input.click();
         }} aria-label="Desde galería">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
