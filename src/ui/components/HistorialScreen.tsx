@@ -38,11 +38,12 @@ function MealTypeLabel({ type }: { type: string }) {
   );
 }
 
-function MealSummary({ meal, onDelete, onRepeat }: { meal: MealAnalysis; onDelete: () => void; onRepeat: () => void }) {
+function MealSummary({ mealAnalysis, onDelete, onRepeat }: { mealAnalysis: MealAnalysis; onDelete: () => void; onRepeat: () => void }) {
+  const meal = mealAnalysis.meal;
   return (
     <div className="historial-meal">
       <div className="historial-meal-header">
-        <MealTypeLabel type={meal.meal.type} />
+        <MealTypeLabel type={meal.type} />
         <div className="historial-meal-actions">
           <button className="historial-meal-action-btn" onClick={onRepeat} aria-label="Repetir">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -57,7 +58,7 @@ function MealSummary({ meal, onDelete, onRepeat }: { meal: MealAnalysis; onDelet
         </div>
       </div>
       <div className="historial-meal-items">
-        {meal.meal.foods.map(f => (
+        {meal.foods.map(f => (
           <div key={f.id} className="historial-meal-item">
             <span className="historial-meal-item-name">{f.name}</span>
             <span className="historial-meal-item-grams">{f.grams}g</span>
@@ -65,9 +66,9 @@ function MealSummary({ meal, onDelete, onRepeat }: { meal: MealAnalysis; onDelet
         ))}
       </div>
       <div className="historial-meal-totals">
-        <span className="historial-meal-total-kcal">{Math.round(meal.totalKcal)} kcal</span>
+        <span className="historial-meal-total-kcal">{Math.round(mealAnalysis.totalKcal)} kcal</span>
         <span className="historial-meal-total-macros">
-          P: {Math.round(meal.totalProtein)}g · C: {Math.round(meal.totalCarbs)}g · G: {Math.round(meal.totalFat)}g
+          P: {Math.round(mealAnalysis.totalProtein)}g · C: {Math.round(mealAnalysis.totalCarbs)}g · G: {Math.round(mealAnalysis.totalFat)}g
         </span>
       </div>
     </div>
@@ -228,7 +229,7 @@ export function HistorialScreen() {
           dateMeals.map((ma, i) => (
             <MealSummary
               key={ma.meal.id || i}
-              meal={ma}
+              mealAnalysis={ma}
               onDelete={() => deleteMeal(ma.meal.id)}
               onRepeat={() => repeatMeal(ma)}
             />
