@@ -63,17 +63,6 @@ export function CamaraScreen() {
     setCameraImage(dataUrl);
   }, [setCameraImage]);
 
-  const _handleFileSelect = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      const dataUrl = reader.result as string;
-      setCameraImage(dataUrl);
-    };
-    reader.readAsDataURL(file);
-  }, [setCameraImage]);
-
   const analyzePhoto = useCallback(() => {
     if (!cameraImage) return;
     setIsAnalyzing(true);
@@ -82,7 +71,7 @@ export function CamaraScreen() {
     // Simulate analysis delay
     setTimeout(() => {
       try {
-        const _result = analyzeImageMock(cameraImage);
+        analyzeImageMock(cameraImage);
         setCurrentScreen('resultado');
       } catch {
         setAnalysisError('Error al analizar la imagen');
