@@ -2929,7 +2929,7 @@ body {
   padding: 12px 14px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--separator);
-  background: var(--bg-elevated);
+  background: var(--bg-card);
   color: var(--text-primary);
   font-size: 15px;
   font-family: inherit;
@@ -2957,7 +2957,7 @@ body {
   padding: 12px 14px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--separator);
-  background: var(--bg-elevated);
+  background: var(--bg-card);
   color: var(--text-primary);
   font-size: 15px;
   font-family: inherit;
@@ -2980,7 +2980,7 @@ body {
   padding: 12px 14px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--separator);
-  background: var(--bg-elevated);
+  background: var(--bg-card);
   color: var(--text-primary);
   font-size: 15px;
   font-family: inherit;
@@ -3231,7 +3231,7 @@ body {
   padding: 12px 14px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--separator);
-  background: var(--bg-elevated);
+  background: var(--bg-card);
   color: var(--text-primary);
   font-size: 15px;
   font-family: inherit;
@@ -3257,7 +3257,7 @@ body {
   padding: 12px 14px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--separator);
-  background: var(--bg-elevated);
+  background: var(--bg-card);
   color: var(--text-primary);
   font-size: 15px;
   font-family: inherit;
@@ -3280,7 +3280,7 @@ body {
   padding: 12px 14px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--separator);
-  background: var(--bg-elevated);
+  background: var(--bg-card);
   color: var(--text-primary);
   font-size: 15px;
   font-family: inherit;
@@ -3323,8 +3323,8 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 12px;
-  border: 1px solid var(--border-color);
-  background: var(--card-bg);
+  border: 1px solid var(--separator);
+  background: var(--bg-card);
   color: var(--text-primary);
   font-size: 18px;
   cursor: pointer;
@@ -3335,8 +3335,8 @@ body {
 }
 
 .historial-date-btn:hover {
-  background: var(--hover-bg);
-  border-color: var(--primary-color);
+  background: var(--separator);
+  border-color: var(--accent);
 }
 
 .historial-date-btn:active {
@@ -3346,8 +3346,8 @@ body {
 .historial-date-input {
   padding: 10px 14px;
   border-radius: 12px;
-  border: 1px solid var(--border-color);
-  background: var(--card-bg);
+  border: 1px solid var(--separator);
+  background: var(--bg-card);
   color: var(--text-primary);
   font-size: 15px;
   font-weight: 500;
@@ -3358,7 +3358,7 @@ body {
 }
 
 .historial-date-input:focus {
-  border-color: var(--primary-color);
+  border-color: var(--accent);
 }
 
 .historial-date-picker {
@@ -3369,8 +3369,8 @@ body {
 .historial-date-picker input {
   padding: 10px 14px;
   border-radius: 12px;
-  border: 1px solid var(--border-color);
-  background: var(--card-bg);
+  border: 1px solid var(--separator);
+  background: var(--bg-card);
   color: var(--text-primary);
   font-size: 15px;
   font-weight: 500;
@@ -3381,7 +3381,7 @@ body {
 }
 
 .historial-date-picker input:focus {
-  border-color: var(--primary-color);
+  border-color: var(--accent);
 }
 
 .historial-favorites {
@@ -3396,13 +3396,13 @@ body {
   gap: 12px;
   padding: 14px;
   border-radius: 16px;
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  border: 1px solid var(--separator);
   transition: all 0.2s ease;
 }
 
 .historial-favorite-item:hover {
-  border-color: var(--primary-color);
+  border-color: var(--accent);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
@@ -3435,8 +3435,8 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  border: 1px solid var(--border-color);
-  background: var(--card-bg);
+  border: 1px solid var(--separator);
+  background: var(--bg-card);
   color: var(--text-secondary);
   font-size: 16px;
   cursor: pointer;
@@ -3447,7 +3447,7 @@ body {
 }
 
 .historial-favorite-action-btn:hover {
-  background: var(--hover-bg);
+  background: var(--separator);
 }
 
 .historial-favorite-action-delete {
@@ -3463,15 +3463,15 @@ body {
 .historial-day-summary {
   padding: 16px;
   border-radius: 16px;
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  border: 1px solid var(--separator);
   margin-bottom: 12px;
 }
 
 .historial-day-summary-kcal {
   font-size: 28px;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--accent);
   margin-bottom: 4px;
 }
 
@@ -3529,7 +3529,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  background: var(--bg-primary);
+  background: var(--bg);
   color: var(--text-primary);
 }
 
@@ -3564,9 +3564,9 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 12px 14px;
-  background: var(--bg-secondary);
+  background: var(--bg-card);
   border-radius: 12px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--separator);
 }
 
 .historial-favorite-name {
@@ -3580,7 +3580,7 @@ body {
 .historial-favorite-kcal {
   font-size: 14px;
   font-weight: 600;
-  color: var(--accent-green);
+  color: var(--green);
   margin-right: 12px;
 }
 
@@ -3600,7 +3600,7 @@ body {
   height: 32px;
   border: none;
   border-radius: 8px;
-  background: var(--bg-tertiary);
+  background: var(--bg-grouped);
   color: var(--text-secondary);
   display: flex;
   align-items: center;
@@ -3611,17 +3611,17 @@ body {
 }
 
 .historial-favorite-action-btn:hover {
-  background: var(--border-color);
+  background: var(--separator);
   color: var(--text-primary);
 }
 
 .historial-favorite-action-delete {
-  color: var(--accent-red);
+  color: var(--red);
 }
 
 .historial-favorite-action-delete:hover {
   background: rgba(239, 68, 68, 0.1);
-  color: var(--accent-red);
+  color: var(--red);
 }
 
 .historial-meals-list {
@@ -3631,9 +3631,9 @@ body {
 
 .historial-meal {
   margin-bottom: 16px;
-  background: var(--bg-secondary);
+  background: var(--bg-card);
   border-radius: 16px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--separator);
   overflow: hidden;
 }
 
@@ -3642,13 +3642,13 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 14px 16px;
-  background: var(--bg-tertiary);
+  background: var(--bg-grouped);
   cursor: pointer;
   transition: background 0.2s;
 }
 
 .historial-meal-header:hover {
-  background: var(--border-color);
+  background: var(--separator);
 }
 
 .historial-meal-type {
@@ -3670,7 +3670,7 @@ body {
   height: 30px;
   border: none;
   border-radius: 8px;
-  background: var(--bg-primary);
+  background: var(--bg);
   color: var(--text-secondary);
   display: flex;
   align-items: center;
@@ -3681,17 +3681,17 @@ body {
 }
 
 .historial-meal-action-btn:hover {
-  background: var(--border-color);
+  background: var(--separator);
   color: var(--text-primary);
 }
 
 .historial-meal-action-delete {
-  color: var(--accent-red);
+  color: var(--red);
 }
 
 .historial-meal-action-delete:hover {
   background: rgba(239, 68, 68, 0.1);
-  color: var(--accent-red);
+  color: var(--red);
 }
 
 .historial-meal-items {
@@ -3703,7 +3703,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 8px 0;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--separator);
 }
 
 .historial-meal-item:last-child {
@@ -3724,14 +3724,14 @@ body {
 
 .historial-meal-totals {
   padding: 12px 16px;
-  background: var(--bg-tertiary);
-  border-top: 1px solid var(--border-color);
+  background: var(--bg-grouped);
+  border-top: 1px solid var(--separator);
 }
 
 .historial-meal-total-kcal {
   font-size: 14px;
   font-weight: 700;
-  color: var(--accent-green);
+  color: var(--green);
   margin-bottom: 6px;
 }
 
@@ -3779,16 +3779,16 @@ body {
 }
 
 .hoy-meal-card {
-  background: var(--card-bg);
+  background: var(--bg-card);
   border-radius: 16px;
   padding: 16px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--separator);
   transition: all 0.2s ease;
 }
 
 .hoy-meal-card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
   transform: translateY(-1px);
 }
 
@@ -3812,7 +3812,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--accent-green-light);
+  background: rgba(52, 199, 89, 0.12);
   border-radius: 10px;
 }
 
@@ -3833,7 +3833,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 8px 0;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--separator);
 }
 
 .hoy-meal-item:last-child {
@@ -3887,8 +3887,8 @@ body {
 }
 
 .hoy-meal-item-delete:hover {
-  background: var(--accent-red-light);
-  color: var(--accent-red);
+  background: rgba(255, 59, 48, 0.12);
+  color: var(--red);
 }
 
 .hoy-meal-card-actions {
@@ -3897,15 +3897,15 @@ body {
   justify-content: space-between;
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--separator);
 }
 
 .hoy-meal-card-add {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: var(--accent-green-light);
-  color: var(--accent-green);
+  background: rgba(52, 199, 89, 0.12);
+  color: var(--green);
   border: none;
   padding: 8px 16px;
   border-radius: 10px;
@@ -3916,7 +3916,7 @@ body {
 }
 
 .hoy-meal-card-add:hover {
-  background: var(--accent-green);
+  background: var(--green);
   color: white;
 }
 
@@ -3924,8 +3924,8 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: var(--accent-red-light);
-  color: var(--accent-red);
+  background: rgba(255, 59, 48, 0.12);
+  color: var(--red);
   border: none;
   padding: 8px 16px;
   border-radius: 10px;
@@ -3936,16 +3936,16 @@ body {
 }
 
 .hoy-meal-card-delete:hover {
-  background: var(--accent-red);
+  background: var(--red);
   color: white;
 }
 
 .hoy-meal-card-empty {
   text-align: center;
   padding: 24px 16px;
-  background: var(--card-bg);
+  background: var(--bg-card);
   border-radius: 16px;
-  border: 1px dashed var(--border-color);
+  border: 1px dashed var(--separator);
 }
 
 .hoy-meal-card-empty-icon {
@@ -3965,7 +3965,7 @@ body {
   justify-content: center;
   gap: 8px;
   padding: 12px;
-  background: var(--accent-green-light);
+  background: rgba(52, 199, 89, 0.12);
   border-radius: 12px;
   margin-bottom: 16px;
 }
@@ -3973,13 +3973,13 @@ body {
 .hoy-progress-remaining-text {
   font-size: 14px;
   font-weight: 600;
-  color: var(--accent-green);
+  color: var(--green);
 }
 
 .hoy-progress-remaining-cal {
   font-size: 14px;
   font-weight: 700;
-  color: var(--accent-green);
+  color: var(--green);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -4003,16 +4003,16 @@ body {
   }
 
   .hoy-meal-card {
-    background: var(--card-bg);
+    background: var(--bg-card);
     border-radius: 16px;
     padding: 16px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--separator);
     transition: all 0.2s ease;
   }
 
   .hoy-meal-card:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     transform: translateY(-1px);
   }
 
@@ -4036,7 +4036,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--accent-green-light);
+    background: rgba(52, 199, 89, 0.12);
     border-radius: 10px;
   }
 
@@ -4057,7 +4057,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 8px 0;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--separator);
   }
 
   .hoy-meal-item:last-child {
@@ -4111,8 +4111,8 @@ body {
   }
 
   .hoy-meal-item-delete:hover {
-    background: var(--accent-red-light);
-    color: var(--accent-red);
+    background: rgba(255, 59, 48, 0.12);
+    color: var(--red);
   }
 
   .hoy-meal-card-actions {
@@ -4121,15 +4121,15 @@ body {
     justify-content: space-between;
     margin-top: 12px;
     padding-top: 12px;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--separator);
   }
 
   .hoy-meal-card-add {
     display: flex;
     align-items: center;
     gap: 6px;
-    background: var(--accent-green-light);
-    color: var(--accent-green);
+    background: rgba(52, 199, 89, 0.12);
+    color: var(--green);
     border: none;
     padding: 8px 16px;
     border-radius: 10px;
@@ -4140,7 +4140,7 @@ body {
   }
 
   .hoy-meal-card-add:hover {
-    background: var(--accent-green);
+    background: var(--green);
     color: white;
   }
 
@@ -4148,8 +4148,8 @@ body {
     display: flex;
     align-items: center;
     gap: 6px;
-    background: var(--accent-red-light);
-    color: var(--accent-red);
+    background: rgba(255, 59, 48, 0.12);
+    color: var(--red);
     border: none;
     padding: 8px 16px;
     border-radius: 10px;
@@ -4160,16 +4160,16 @@ body {
   }
 
   .hoy-meal-card-delete:hover {
-    background: var(--accent-red);
+    background: var(--red);
     color: white;
   }
 
   .hoy-meal-card-empty {
     text-align: center;
     padding: 24px 16px;
-    background: var(--card-bg);
+    background: var(--bg-card);
     border-radius: 16px;
-    border: 1px dashed var(--border-color);
+    border: 1px dashed var(--separator);
   }
 
   .hoy-meal-card-empty-icon {
@@ -4189,7 +4189,7 @@ body {
     justify-content: center;
     gap: 8px;
     padding: 12px;
-    background: var(--accent-green-light);
+    background: rgba(52, 199, 89, 0.12);
     border-radius: 12px;
     margin-bottom: 16px;
   }
@@ -4197,12 +4197,12 @@ body {
   .hoy-progress-remaining-text {
     font-size: 14px;
     font-weight: 600;
-    color: var(--accent-green);
+    color: var(--green);
   }
 
   .hoy-progress-remaining-cal {
     font-size: 14px;
     font-weight: 700;
-    color: var(--accent-green);
+    color: var(--green);
   }
 }
