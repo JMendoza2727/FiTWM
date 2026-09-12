@@ -2716,3 +2716,296 @@ body {
   font-size: 15px;
   font-weight: 500;
 }
+
+/* ============================================================
+   FiTWM - Additional Screen Classes (Compliance)
+   ============================================================ */
+
+/* ---- CamaraScreen preview states ---- */
+
+.camara-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+.camara-preview {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+.camara-preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  padding-top: max(16px, env(safe-area-inset-top));
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.camara-preview-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.camara-preview-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s;
+}
+
+.camara-preview-btn:active {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.camara-preview-btn-analyze {
+  background: var(--accent);
+}
+
+.camara-preview-btn-analyzing {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.camara-preview-btn-gallery {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.camara-preview-cancel {
+  background: rgba(255, 59, 48, 0.8);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.camara-preview-image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.camara-preview-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.camara-preview-back {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.camara-preview-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.camara-preview-spinner svg {
+  width: 32px;
+  height: 32px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.camara-preview-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 24px;
+  text-align: center;
+  gap: 16px;
+}
+
+.camara-preview-error-icon {
+  font-size: 48px;
+  opacity: 0.5;
+}
+
+.camara-preview-error-text {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ---- Circular Progress (macros) ---- */
+
+.circular-progress {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-progress-track {
+  fill: none;
+  stroke: var(--separator);
+  stroke-width: 8;
+}
+
+.circular-progress-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-progress-kcal {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.circular-progress-label {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.circular-progress-ring {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+/* ---- Form elements ---- */
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--separator);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-input:focus {
+  border-color: var(--accent);
+}
+
+.form-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.form-input:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.form-select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--separator);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.form-select:focus {
+  border-color: var(--accent);
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--separator);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 0.15s;
+}
+
+.form-textarea:focus {
+  border-color: var(--accent);
+}
+
+.form-textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+.form-error {
+  font-size: 13px;
+  color: var(--red);
+  margin-top: 4px;
+}
+
+.form-hint {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
