@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './ui/App';
 import './index.css';
+import './fitwm-premium.css';
 
 const root = document.getElementById('root');
 if (!root) throw new Error('Root element not found');
