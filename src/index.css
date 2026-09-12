@@ -3755,4 +3755,454 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
+}/* ============================================================
+   FiTWM - HoyScreen Meal Cards
+   ============================================================ */
+
+.hoy-meals-section {
+  margin-bottom: 24px;
+}
+
+.hoy-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+.hoy-meals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.hoy-meal-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.hoy-meal-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.hoy-meal-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.hoy-meal-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.hoy-meal-card-icon {
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-green-light);
+  border-radius: 10px;
+}
+
+.hoy-meal-card-total {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.hoy-meal-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hoy-meal-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hoy-meal-item:last-child {
+  border-bottom: none;
+}
+
+.hoy-meal-item-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.hoy-meal-item-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.hoy-meal-item-grams {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.hoy-meal-item-kcal {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.hoy-meal-item-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hoy-meal-item-delete {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hoy-meal-item-delete:hover {
+  background: var(--accent-red-light);
+  color: var(--accent-red);
+}
+
+.hoy-meal-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.hoy-meal-card-add {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent-green-light);
+  color: var(--accent-green);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.hoy-meal-card-add:hover {
+  background: var(--accent-green);
+  color: white;
+}
+
+.hoy-meal-card-delete {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent-red-light);
+  color: var(--accent-red);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.hoy-meal-card-delete:hover {
+  background: var(--accent-red);
+  color: white;
+}
+
+.hoy-meal-card-empty {
+  text-align: center;
+  padding: 24px 16px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  border: 1px dashed var(--border-color);
+}
+
+.hoy-meal-card-empty-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+  opacity: 0.5;
+}
+
+.hoy-meal-card-empty-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.hoy-progress-remaining {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--accent-green-light);
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.hoy-progress-remaining-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-green);
+}
+
+.hoy-progress-remaining-cal {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-green);
+}
+
+@media (prefers-color-scheme: dark) {
+  .hoy-meals-section {
+    margin-bottom: 24px;
+  }
+
+  .hoy-section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    padding-left: 4px;
+  }
+
+  .hoy-meals-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .hoy-meal-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+  }
+
+  .hoy-meal-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .hoy-meal-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .hoy-meal-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .hoy-meal-card-icon {
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-green-light);
+    border-radius: 10px;
+  }
+
+  .hoy-meal-card-total {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .hoy-meal-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hoy-meal-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .hoy-meal-item:last-child {
+    border-bottom: none;
+  }
+
+  .hoy-meal-item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .hoy-meal-item-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .hoy-meal-item-grams {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  .hoy-meal-item-kcal {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .hoy-meal-item-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hoy-meal-item-delete {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-size: 16px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hoy-meal-item-delete:hover {
+    background: var(--accent-red-light);
+    color: var(--accent-red);
+  }
+
+  .hoy-meal-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .hoy-meal-card-add {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-green-light);
+    color: var(--accent-green);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .hoy-meal-card-add:hover {
+    background: var(--accent-green);
+    color: white;
+  }
+
+  .hoy-meal-card-delete {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-red-light);
+    color: var(--accent-red);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .hoy-meal-card-delete:hover {
+    background: var(--accent-red);
+    color: white;
+  }
+
+  .hoy-meal-card-empty {
+    text-align: center;
+    padding: 24px 16px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 1px dashed var(--border-color);
+  }
+
+  .hoy-meal-card-empty-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+    opacity: 0.5;
+  }
+
+  .hoy-meal-card-empty-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  .hoy-progress-remaining {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: var(--accent-green-light);
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+
+  .hoy-progress-remaining-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-green);
+  }
+
+  .hoy-progress-remaining-cal {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent-green);
+  }
 }
