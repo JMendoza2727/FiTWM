@@ -216,7 +216,12 @@ export function HistorialScreen() {
       <div className="historial-meals-list">
         {dateMeals.length === 0 ? (
           <div className="historial-empty">
-            <div className="historial-empty-icon">📅</div>
+            <div className="historial-empty-icon" aria-hidden="true">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="5" width="18" height="16" rx="2" />
+                <path d="M16 3v4M8 3v4M3 10h18" />
+              </svg>
+            </div>
             <p>No hay comidas registradas</p>
           </div>
         ) : (

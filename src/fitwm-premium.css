@@ -1471,3 +1471,113 @@ body {
 .confirm-actions button {
   flex: 1;
 }
+
+/* === V13 QA POLISH: exact selectors only === */
+
+/* Historial: clearer hierarchy and readable empty state */
+.historial-screen .screen-header {
+  padding-bottom: 8px;
+}
+
+.historial-date-selector {
+  margin-top: 2px;
+  margin-bottom: 14px;
+}
+
+.historial-date-btn {
+  min-height: 48px;
+  font-size: 15px;
+  font-weight: 650;
+  color: var(--fw-color-text-secondary);
+}
+
+.historial-month-label {
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  color: var(--fw-color-text-tertiary);
+}
+
+.historial-empty {
+  min-height: 260px;
+  margin: 0 20px 18px;
+  padding: 56px 24px;
+  background: var(--fw-color-surface);
+  border: 1px solid var(--fw-color-border);
+  border-radius: var(--fw-radius-xl);
+  box-shadow: var(--fw-shadow-sm);
+}
+
+.historial-empty-icon {
+  font-size: 52px;
+  margin-bottom: 14px;
+  opacity: 0.72;
+}
+
+.historial-empty p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 650;
+  color: var(--fw-color-text);
+}
+
+/* Hoy: spacing, consistent add controls and polished empty states */
+.hoy-progress-section {
+  margin-top: 12px;
+}
+
+.hoy-screen .screen-header-btn,
+.hoy-meal-card-add {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: var(--fw-color-accent-light);
+  color: var(--fw-color-accent);
+  box-shadow: none;
+}
+
+.hoy-screen .screen-header-btn:hover,
+.hoy-meal-card-add:hover {
+  background: var(--fw-color-accent);
+  color: #fff;
+}
+
+.hoy-progress-remaining {
+  border-radius: var(--fw-radius-md);
+}
+
+.hoy-meal-card-icon {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--fw-color-surface-2);
+  flex: 0 0 32px;
+}
+
+.hoy-meal-card-empty {
+  margin-top: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--fw-color-border);
+  border-radius: var(--fw-radius-md);
+  background: var(--fw-color-surface-2);
+  color: var(--fw-color-text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 430px) {
+  .historial-empty {
+    min-height: 240px;
+  }
+
+  .hoy-progress-section {
+    margin-top: 14px;
+  }
+}
